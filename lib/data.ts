@@ -11,7 +11,7 @@ const ventureExtras: Record<string, { short: string; logo?: string; img?: string
   "fairytale-weddings": { short: "Fairytale Wedding", logo: "/logos/fairytale.png",  },
   "harmony-retreat": { short: "Harmony Retreat", logo: "/logos/harmony-retreat.png",  },
   "harmony-movement": { short: "Harmony Movement", logo: "/logos/harmony-movement.png",  },
-  "brand-and-beeyond": { short: "Brand & Beeyond", logo: "/logos/brandandbeeyond.png", img: "/images/brandandbeeyond-hive.jpg" },
+  "brand-and-beeyond": { short: "Brand & Beeyond", logo: "/logos/brandandbeeyond.png" },
   "touchwood-foundation": { short: "Foundation" },
 };
 
