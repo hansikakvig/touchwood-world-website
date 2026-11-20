@@ -741,3 +741,17 @@ main > * { animation: pgin .5s ease both; }
   .rvw-track, .hive-track { animation: none; }
   .rvw, .hive-strip { overflow-x: auto; -webkit-mask: none; mask: none; }
 }
+
+/* compact family tree */
+.fam-sec { padding-top: 56px; padding-bottom: 64px; }
+.fam-sec .fam { margin-top: 28px; }
+.fam-sec .fam-root { padding: 18px 32px; gap: 6px; }
+.fam-sec .fam-root img { height: 50px; }
+.fam-sec .fam-line { height: 30px; }
+.fam-sec .fam-kids { gap: 14px; padding-top: 20px; }
+.fam-sec .fam-tile { min-height: 112px; padding: 18px 14px 14px; gap: 8px; border-radius: 16px; }
+.fam-sec .fam-tile img { height: 46px; max-width: 160px; }
+.fam-sec .fam-root small, .fam-sec .fam-tile small { font-size: 12px; }
+@media (max-width: 860px) { .fam-sec .fam-kids { grid-template-columns: repeat(3, 1fr); gap: 10px; } .fam-sec .fam-tile { min-height: 96px; padding: 14px 8px 10px; } .fam-sec .fam-tile img { height: 36px; max-width: 100%; } .fam-sec .fam-tile small { font-size: 10.5px; text-align: center; } }
+@media (max-width: 420px) { .fam-sec .fam-kids { grid-template-columns: 1fr 1fr; } .fam-sec { padding-top: 40px; padding-bottom: 48px; } }
+@media (max-width: 600px) { .fam-sec .fam-root { padding: 14px 22px; } .fam-sec .fam-root img { height: 38px; } .fam-sec .fam-line { height: 22px; } }

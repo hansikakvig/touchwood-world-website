@@ -4,7 +4,7 @@ import Counter from "@/components/Counter";
 import VentureCards from "@/components/VentureCards";
 import Testimonials from "@/components/Testimonials";
 import Pic from "@/components/Pic";
-import { stats, sectors, reach, sys, team, strat, ventures, siteUrl, teamPhoto, projects, interests } from "@/lib/data";
+import { stats, family, sectors, reach, sys, team, strat, ventures, siteUrl, teamPhoto, projects, interests } from "@/lib/data";
 
 /** Photo shown beside each sector (swap for real project photos when available). */
 const sectorImg = ["/images/ventures/sector-real-estate.webp", "/images/ventures/sector-hospitality.webp", "/images/brandandbeeyond-hive.jpg", "/images/hive-ourpeople-4.webp"];
@@ -42,6 +42,27 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <section className="fam-sec">
+        <div className="wrap">
+          <span className="kicker">Our family</span>
+          <h2 className="rv">The Touchwood family.</h2>
+          <p className="lead rv">One group, seven ventures, each leading in its own field.</p>
+          <div className="fam">
+            {family.slice(0, 1).map(([src, alt, sm]) => (
+              <div className="fam-root rv" key={src}><img src={src} alt={alt} /><small>{sm}</small></div>
+            ))}
+            <div className="fam-line rv" aria-hidden="true" />
+            <div className="fam-kids">
+              {family.slice(1).map(([src, alt, sm], k) => (
+                <div className="fam-tile rv" key={src} style={{ "--d": k } as React.CSSProperties}>
+                  <img src={src} alt={alt} loading="lazy" /><small>{sm}</small>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="alt">
         <div className="wrap split">
