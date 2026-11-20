@@ -49,7 +49,7 @@ export default function Header() {
             </ul>
           </nav>
           <div className="hdr-cta">
-            <Link className="btn" href="/careers/">Work with us</Link>
+            <Link className="btn" href="/contact/#enquire">Enquire now</Link>
             <button className="burger" aria-label="Menu" aria-controls="main-nav" aria-expanded={open} onClick={() => setOpen((v) => !v)}><span /></button>
           </div>
         </div>

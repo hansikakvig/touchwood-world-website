@@ -690,3 +690,46 @@ main > * { animation: pgin .5s ease both; }
 .hive-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
 .hive-shot:hover img { transform: scale(1.08); }
 @media (max-width: 600px) { .hive-shot { width: 200px; height: 260px; margin-right: 10px; } .hive-shot:nth-child(even) { height: 210px; margin-top: 25px; } .hive-track { animation-duration: 40s; } }
+
+/* ---------- Enquiry form (contact) ---------- */
+.enq { max-width: 860px; background: #fff; border: 1.5px solid var(--line); border-radius: 26px; padding: clamp(24px, 4vw, 44px); box-shadow: 0 24px 60px rgba(43,26,16,.08); display: grid; gap: 18px; scroll-margin-top: 110px; }
+.enq-head h2 { margin: 6px 0 6px; font-size: clamp(26px, 3.2vw, 38px); }
+.enq-head p { margin: 0; color: var(--mute); }
+.enq-chips { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.enq-chips legend { font-weight: 700; margin-bottom: 10px; padding: 0; }
+.enq-chips label { cursor: pointer; padding: 9px 16px; border-radius: 999px; border: 1.5px solid var(--line); font-weight: 600; font-size: 14.5px; transition: background .2s, color .2s, border-color .2s; }
+.enq-chips label:hover { border-color: var(--honey); }
+.enq-chips label.on { background: var(--or); border-color: var(--or); color: #fff; }
+.enq-chips label:focus-within { outline: 3px solid var(--honey); outline-offset: 2px; }
+.enq-chips input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.enq-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.enq label { display: grid; gap: 6px; font-weight: 600; font-size: 14.5px; }
+.enq input:not([type=radio]), .enq textarea { font: 400 16px var(--body); color: var(--ink); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 14px; transition: border-color .2s, box-shadow .2s; resize: vertical; }
+.enq input:focus, .enq textarea:focus { outline: none; border-color: var(--or); box-shadow: 0 0 0 4px rgba(242,106,27,.14); }
+.enq-err { margin: 0; color: #b42318; font-weight: 600; }
+.enq-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.enq-actions .btn { border: 0; cursor: pointer; font: inherit; font-weight: 700; }
+.enq-actions .btn.ghost { border: 1.5px solid currentColor; }
+.enq-note { margin: 0; color: var(--mute); font-size: 13.5px; }
+@media (max-width: 600px) { .enq-row { grid-template-columns: 1fr; } }
+
+/* home: CTA band chips, named projects, principle text, leader photos */
+.band-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 26px; }
+.band-chips a { padding: 9px 16px; border-radius: 999px; background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,255,255,.4); color: #fff; font-weight: 600; font-size: 14.5px; text-decoration: none; transition: background .2s, color .2s; }
+.band-chips a:hover { background: #fff; color: var(--or-dk); }
+.projs { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; font-size: 14px; color: var(--mute); }
+.projs span { font-weight: 700; color: var(--ink); margin-right: 4px; }
+.projs a { padding: 5px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-weight: 600; transition: border-color .2s, color .2s; }
+.projs a:hover { border-color: var(--or); color: var(--or-dk); }
+.prin-card p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--mute); transition: color .35s; }
+.prin-card:hover p { color: rgba(255,255,255,.9); }
+.prin-card { justify-content: flex-start; }
+.prin-card .hx { margin-top: 6px; }
+.team .hx:has(img) { width: 104px; height: 120px; }
+.team .hx img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.roles.open { border-style: dashed; background: transparent; }
+@media (max-width: 560px) {
+  .prin-card { flex-direction: column; align-items: flex-start; }
+  .prin-card p { padding-right: 40px; }
+  .prin-no { top: 18px; transform: none; }
+}

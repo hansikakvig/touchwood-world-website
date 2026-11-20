@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import { contact } from "@/lib/data";
+import EnquiryForm from "@/components/EnquiryForm";
 
 export const metadata: Metadata = { title: "Contact" };
 const tel = (p: string) => "tel:" + p.replace(/\s/g, "");
@@ -9,8 +10,11 @@ const topics = ["Work", "Partner", "Sell", "Invest", "Do business", "Social work
 export default function Contact() {
   return (
     <>
-      <PageHero title="Come say hello." sub="Visit our corporate office in Nashik, or reach out to the team." crumbs={[{ href: "/contact/", label: "Contact" }]} />
+      <PageHero title="Come say hello." sub="Send an enquiry, visit our corporate office in Nashik, or call the team." crumbs={[{ href: "/contact/", label: "Contact" }]} />
       <section>
+        <div className="wrap"><EnquiryForm /></div>
+      </section>
+      <section className="alt">
         <div className="wrap">
           <span className="kicker">Get in touch</span>
           <h2 className="rv">Our Nashik office.</h2>

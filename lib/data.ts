@@ -25,7 +25,8 @@ const blogImg: Record<string, string | undefined> = {
 };
 export const blogs = raw.blogs.map((b) => ({ ...b, img: blogImg[b.slug] }));
 
-export const { team, strat, sys, stats, careers, social, contact } = raw;
+export const { team, strat, stats, careers, social, contact } = raw;
+export const sys = raw.sys as [string, string][];
 export const reach = raw.home.reach;
 export const sectors = raw.home.sectors as [string, string, string[]][];
 
@@ -33,7 +34,7 @@ export const pillars = [
   { k: "biz", t: "Businesses", s: "7 ventures", href: "/ventures/", d: "Real estate, hospitality, weddings, wellness, branding and a foundation. Seven ventures, one philosophy." },
   { k: "ppl", t: "People", s: "Team first", href: "/about/", d: "A founder-led, employee-first culture with a Chief Happiness Officer at the heart of it." },
   { k: "str", t: "Strategy", s: "Vision", href: "/about/", d: "Inspiration, aspiration, expedition and promise: one direction that every venture follows." },
-  { k: "sys", t: "Systems", s: "How we work", href: "/about/", d: "Nine working principles, from customer experience to the Happy Supplier Policy." },
+  { k: "sys", t: "Systems", s: "How we work", href: "/about/", d: "Six working principles, from nature-first places to clear, honest dealings." },
 ];
 
 export const heroSlides = [
@@ -53,16 +54,14 @@ export const family = [
   ["/logos/brandandbeeyond.png", "Brand and Beeyond", "Branding agency"],
 ];
 
-/** Real reviews, as published on touchwoodworld.com and touchwoodlifespaces.com. */
+/** Real customer reviews, as published on touchwoodlifespaces.com. */
 export const testimonials = [
   { q: "Touchwood Lifespaces is honest and trustworthy. I have done many property deals with them and I’m very happy. If you are looking for NA plots in Igatpuri or the best NA plots near Mumbai, they are the right choice.", n: "Sachin Bedade", v: "Touchwood Lifespaces" },
   { q: "It was really good experience dealing with team from Touchwood. Nice property in nature, good knowledge of team regarding real estate market, immediate clarification of queries, all clear documentation, good support during purchase process were major highlights.", n: "Pankaj Shingote", v: "Touchwood Lifespaces" },
-  { q: "Good initiative plan. And it’s more helpful.", n: "Akshay Kulthe", v: "Touchwood World" },
   { q: "We were looking for land for sale in Igatpuri to build our dream holiday home, and Touchwood Lifespaces exceeded our expectations! The plots are beautifully located, surrounded by nature, and just a short drive from Mumbai.", n: "Rajesh Marathe", r: "Chartered Accountant", v: "Touchwood Lifespaces" },
   { q: "Finding plots near Mumbai that offer both peace and investment potential felt impossible until we discovered Touchwood Lifespaces. Their NA plots are clear-titled, well-developed, and give us the chance to create the bungalow we always dreamed of.", n: "Mohini Desai", r: "Entrepreneur", v: "Touchwood Lifespaces" },
   { q: "Great services and ideas regarding real estate investments. Would love to work together in future also.", n: "Chintan Nahar", v: "Touchwood Lifespaces" },
   { q: "We recently bought a plot in Igatpuri at Touchwood Lifespaces, and the experience has been amazing! Pure nature, great infrastructure, and seamless service.", n: "Sneha & Manish Desai", r: "Fitness Coach", v: "Touchwood Lifespaces" },
-  { q: "Excellent team work. I wish you the greatest services.", n: "Tejas Yadav", r: "Manager", v: "Touchwood World" },
   { q: "Touchwood Lifespaces helped us secure a resort plot in Igatpuri where we plan to build our dream getaway. It’s more than just land, it’s a legacy we are excited to create.", n: "Sumit Das", r: "Pulmonologist", v: "Touchwood Lifespaces" },
 ] as { q: string; n: string; r?: string; v: string }[];
 
@@ -92,3 +91,23 @@ export const hiveShots: Shot[] = [
 // Interleave the two sets so "All" alternates office and people shots.
 const A = hiveShots.filter((s) => s.cat === "Ambience"), P = hiveShots.filter((s) => s.cat === "Our people");
 export const hiveMixed = Array.from({ length: Math.max(A.length, P.length) }, (_, i) => [A[i], P[i]]).flat().filter(Boolean) as Shot[];
+
+/** Leadership photos (from theharmonyretreat.in and harmonyandher.com); people without one show initials. */
+export const teamPhoto: Record<string, string> = {
+  "Kapil Surana": "/images/team/kapil-surana.webp",
+  "Rupali Surana": "/images/team/rupali-surana.webp",
+};
+
+/** Named Touchwood Lifespaces projects (from the venture content). */
+export const projects = ["Hillsyde", "Countrysyde", "Riversyde", "Naturesyde", "Greensyde", "Hillnest"];
+
+/** What a visitor can enquire about; `k` is used in /contact/?i=<k>. */
+export const interests = [
+  { k: "plot", label: "Buy a plot or villa", to: "Touchwood Lifespaces" },
+  { k: "stay", label: "Book a stay", to: "Touchwood Bliss" },
+  { k: "wedding", label: "Plan a wedding", to: "Fairytale Weddings" },
+  { k: "retreat", label: "Join a retreat", to: "The Harmony Retreat" },
+  { k: "brand", label: "Branding & marketing", to: "Brand and Beeyond" },
+  { k: "partner", label: "Partner or invest", to: "Touchwood World" },
+  { k: "other", label: "Something else", to: "Touchwood World" },
+];

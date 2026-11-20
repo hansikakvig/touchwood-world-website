@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import { hiveMixed } from "@/lib/data";
-import { strat, team, sys, stats } from "@/lib/data";
+import { strat, team, sys, stats, teamPhoto } from "@/lib/data";
 
 export const metadata: Metadata = { title: "About" };
 
@@ -30,14 +30,14 @@ export default function About() {
         <div className="wrap">
           <span className="kicker">Leadership</span>
           <h2 className="rv">Our people.</h2>
-          <div className="team">{team.map((t) => (<div className="rv" key={t.n}><div className="hx">{t.n.split(" ").map((w) => w[0]).join("")}</div><h3>{t.n}</h3><small>{t.r}</small><p>{t.b}</p></div>))}</div>
+          <div className="team">{team.map((t) => (<div className="rv" key={t.n}><div className="hx">{teamPhoto[t.n] ? <img src={teamPhoto[t.n]} alt={t.n} loading="lazy" /> : t.n.split(" ").map((w) => w[0]).join("")}</div><h3>{t.n}</h3><small>{t.r}</small><p>{t.b}</p></div>))}</div>
         </div>
       </section>
       <section>
         <div className="wrap">
           <span className="kicker">How we work</span>
           <h2 className="rv">The systems behind the brand.</h2>
-          <div className="sys">{sys.map((s) => (<div className="rv" key={s}><i className="hx" />{s}</div>))}</div>
+          <div className="sys two">{sys.map(([h, p]) => (<div className="rv" key={h}><i className="hx" /><span>{h}<small>{p}</small></span></div>))}</div>
         </div>
       </section>
       <section className="alt">

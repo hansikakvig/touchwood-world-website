@@ -17,14 +17,19 @@ export default function Careers() {
       </section>
       <section className="alt">
         <div className="wrap">
-          <span className="kicker">Hiring now</span>
-          <h2 className="rv">Current openings.</h2>
+          <span className="kicker">Always hiring</span>
+          <h2 className="rv">Open roles.</h2>
+          <p className="lead rv">We are a growing group and hire across every venture through the year. Here is what is open right now.</p>
           {careers.roles.map((r) => (
             <div className="roles rv" key={r.t}>
               <div><span className="tag">{r.team}</span><h3>{r.t}</h3><p>{r.d}</p><p className="meta">{r.meta}</p></div>
               <a className="btn" href={`mailto:${contact.careers}?subject=${encodeURIComponent("Application: " + r.t)}`}>Apply by email</a>
             </div>
           ))}
+          <div className="roles open rv">
+            <div><span className="tag">Any department</span><h3>Don’t see your role?</h3><p>Real estate sales, hospitality, events, wellness, design, marketing or operations: send us your CV and tell us where you would add value. We keep every application on file for upcoming openings.</p></div>
+            <a className="btn ghost" href={`mailto:${contact.careers}?subject=${encodeURIComponent("Open application")}`}>Send your CV</a>
+          </div>
         </div>
       </section>
       <section>

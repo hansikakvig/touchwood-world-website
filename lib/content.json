@@ -3,7 +3,7 @@
   {
    "n": "Touchwood Lifespaces",
    "tag": "Real estate",
-   "line": "Igatpuri's 1st and only creators of nature-inspired passive income homes.",
+   "line": "Nature-inspired homes, villas and NA plots in Igatpuri and Nashik.",
    "d": "NA plots, resort plots, organic farms and villas in Igatpuri and Nashik, close to Bhavali Dam, the Samruddhi Highway and the Mumbai-Nashik highway. Every project is planned around hills, forest, river or meadow.",
    "pts": [
     "Hillsyde: Vastu-compliant hill-facing bungalows with lap pool and sky terrace",
@@ -46,7 +46,7 @@
   {
    "n": "The Harmony Retreat",
    "tag": "Wellness",
-   "line": "India's 1st and only personalised holistic transformational retreat.",
+   "line": "Personalised holistic retreats for transformation, set in nature.",
    "d": "Home of Love You Zindagi, a self-love retreat rooted in Indian philosophy, with breathwork, circles, silent walks and nourishing pure veg food in small groups. Hosted at Touchwood Bliss.",
    "pts": [
     "Love You Zindagi",
@@ -133,15 +133,30 @@
   ]
  ],
  "sys": [
-  "Brand vision and ecosystem",
-  "Innovative products",
-  "Awesome customer experience",
-  "Regular training and skill enhancement",
-  "Employee-first mindset",
-  "Happy Supplier Policy",
-  "Aggressive branding and marketing",
-  "Good problem-solving skills",
-  "Delighted clients and brand loyalty"
+  [
+   "Nature-first places",
+   "Every project is planned around hills, forest, river or meadow, never just a plot on a map."
+  ],
+  [
+   "Clear, honest dealings",
+   "Clear titles, clear documentation and straight answers, from first visit to handover."
+  ],
+  [
+   "A team that answers",
+   "Quick clarification of queries and one person who stays with you through the process."
+  ],
+  [
+   "Guest experience first",
+   "At our stays, weddings and retreats, every detail is designed around how you feel."
+  ],
+  [
+   "Built for the long term",
+   "We think in decades: infrastructure, upkeep and value that keep growing."
+  ],
+  [
+   "Trained, happy people",
+   "Regular training and an employee-first culture, so the people serving you love what they do."
+  ]
  ],
  "stats": [
   [
