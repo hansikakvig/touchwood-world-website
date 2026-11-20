@@ -672,3 +672,4 @@ main > * { animation: pgin .5s ease both; }
 .rvw-card figcaption small { color: var(--mute); font-size: 12.5px; }
 @media (prefers-reduced-motion: reduce) { .rvw-card { animation: none; } }
 .rvw-q { font: 800 40px/0.6 var(--head); color: var(--honey); height: 18px; }
+.rvw { scrollbar-width: none; } .rvw::-webkit-scrollbar { display: none; }

@@ -11,12 +11,10 @@ export default function Testimonials() {
     const c = el.current; if (!c || !c.firstElementChild) return;
     const w = (c.firstElementChild as HTMLElement).offsetWidth + 16;
     const atEnd = c.scrollLeft + w > c.scrollWidth - c.clientWidth - 4;
-    const atStart = c.scrollLeft < 4;
-    c.scrollTo({ left: dir > 0 ? (atEnd ? 0 : c.scrollLeft + w) : (atStart ? c.scrollWidth : c.scrollLeft - w), behavior: "smooth" });
+    c.scrollTo({ left: atEnd ? 0 : c.scrollLeft + w * dir, behavior: "smooth" });
   };
   useEffect(() => {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => { if (!paused.current) step(1); }, 4500);
+    const t = setInterval(() => { if (!paused.current) step(1); }, 3500);
     return () => clearInterval(t);
   }, []);
   return (
@@ -26,7 +24,7 @@ export default function Testimonials() {
         <span><b>★★★★★</b> reviews from Touchwood Lifespaces customers</span>
       </div>
       <div className="rvw" ref={el} onMouseEnter={() => (paused.current = true)} onMouseLeave={() => (paused.current = false)}
-        onTouchStart={() => (paused.current = true)} onFocus={() => (paused.current = true)}>
+        onTouchStart={() => (paused.current = true)} onTouchEnd={() => setTimeout(() => (paused.current = false), 3000)}>
         {testimonials.map((t, i) => (
           <figure className="rvw-card" key={t.n} style={{ "--d": i % 4 } as React.CSSProperties}>
             {t.v === "Touchwood Lifespaces" ? <div className="rvw-stars" aria-label="5 out of 5 stars">★★★★★</div> : <div className="rvw-q" aria-hidden="true">“</div>}
@@ -37,10 +35,6 @@ export default function Testimonials() {
             </figcaption>
           </figure>
         ))}
-      </div>
-      <div className="scroll-ctl">
-        <button className="rbtn" aria-label="Previous review" onClick={() => step(-1)}>←</button>
-        <button className="rbtn" aria-label="Next review" onClick={() => step(1)}>→</button>
       </div>
     </>
   );
