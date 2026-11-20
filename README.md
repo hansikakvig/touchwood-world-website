@@ -12,4 +12,4 @@ npm run build    # static site in ./out
 - `app/` – routes: `/`, `/about`, `/ventures`, `/ventures/[slug]`, `/careers`, `/social-work`, `/blogs`, `/blogs/[slug]`, `/contact`
 - `components/` – header, footer, hero + hive, venture explorer, cards, counters, testimonials
 - `public/images`, `public/logos` – photos and logos
-- `scripts/build-preview.py` – builds the single-file preview: `python3 scripts/build-preview.py out preview/touchwood-preview.html`
+- `scripts/build-preview.py` – optional single-file preview (not committed): `npm run build` then `python3 scripts/build-preview.py out preview/touchwood-preview.html`
