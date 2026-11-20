@@ -1,19 +1,8 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { hiveShots as shots, hiveMixed as mixed } from "@/lib/data";
 
-type Shot = { src: string; cat: "Ambience" | "Our people"; alt: string };
-
-const amb = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13];
-const ppl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-const shots: Shot[] = [
-  { src: "/images/hive-office.webp", cat: "Ambience", alt: "The Touchwood Hive office, Nashik" },
-  ...amb.map((n) => ({ src: `/images/hive-ambience-${n}.webp`, cat: "Ambience" as const, alt: "Touchwood Hive ambience" })),
-  ...ppl.map((n) => ({ src: `/images/hive-ourpeople-${n}.webp`, cat: "Our people" as const, alt: "Our people at the Touchwood Hive" })),
-];
-// Interleave the two sets so "All" alternates office and people shots.
-const A = shots.filter((s) => s.cat === "Ambience"), P = shots.filter((s) => s.cat === "Our people");
-const mixed = Array.from({ length: Math.max(A.length, P.length) }, (_, i) => [A[i], P[i]]).flat().filter(Boolean) as Shot[];
 const tabs = ["All", "Ambience", "Our people"] as const;
 
 export default function HiveGallery() {

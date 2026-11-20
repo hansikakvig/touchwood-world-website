@@ -78,3 +78,17 @@ export const nav = [
 
 /** Official website URL for a venture, or undefined when it has none (e.g. an email contact). */
 export const siteUrl = (url: string) => (url.includes("@") ? undefined : `https://${url}`);
+
+/** Touchwood Hive office photos (from touchwoodworld.com/touchwoodhive.html). */
+export type Shot = { src: string; cat: "Ambience" | "Our people"; alt: string };
+
+const amb = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13];
+const ppl = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+export const hiveShots: Shot[] = [
+  { src: "/images/hive-office.webp", cat: "Ambience", alt: "The Touchwood Hive office, Nashik" },
+  ...amb.map((n) => ({ src: `/images/hive-ambience-${n}.webp`, cat: "Ambience" as const, alt: "Touchwood Hive ambience" })),
+  ...ppl.map((n) => ({ src: `/images/hive-ourpeople-${n}.webp`, cat: "Our people" as const, alt: "Our people at the Touchwood Hive" })),
+];
+// Interleave the two sets so "All" alternates office and people shots.
+const A = hiveShots.filter((s) => s.cat === "Ambience"), P = hiveShots.filter((s) => s.cat === "Our people");
+export const hiveMixed = Array.from({ length: Math.max(A.length, P.length) }, (_, i) => [A[i], P[i]]).flat().filter(Boolean) as Shot[];

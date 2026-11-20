@@ -680,3 +680,13 @@ main > * { animation: pgin .5s ease both; }
 .rvw-track .rvw-card { flex: 0 0 300px; margin-right: 16px; animation: none; }
 @keyframes rvw-run { to { transform: translateX(-50%); } }
 @media (max-width: 600px) { .rvw-track { animation-duration: 35s; } .rvw-track .rvw-card { flex-basis: 260px; } }
+
+/* ---------- About: sliding Hive photo strip ---------- */
+.hive-strip { overflow: hidden; margin-top: 30px; -webkit-mask: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.hive-track { display: flex; width: max-content; animation: rvw-run 50s linear infinite; }
+.hive-strip:hover .hive-track { animation-play-state: paused; }
+.hive-shot { flex: none; width: 300px; height: 380px; margin-right: 16px; border-radius: 20px; overflow: hidden; display: block; }
+.hive-shot:nth-child(even) { height: 300px; margin-top: 40px; }
+.hive-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.8,.2,1); }
+.hive-shot:hover img { transform: scale(1.08); }
+@media (max-width: 600px) { .hive-shot { width: 200px; height: 260px; margin-right: 10px; } .hive-shot:nth-child(even) { height: 210px; margin-top: 25px; } .hive-track { animation-duration: 40s; } }

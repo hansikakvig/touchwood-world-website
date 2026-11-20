@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
-import HiveGallery from "@/components/HiveGallery";
+import Link from "next/link";
+import { hiveMixed } from "@/lib/data";
 import { strat, team, sys, stats } from "@/lib/data";
 
 export const metadata: Metadata = { title: "About" };
@@ -49,7 +50,18 @@ export default function About() {
           <span className="kicker">Gallery</span>
           <h2 className="rv">Inside the Touchwood Hive.</h2>
           <p className="lead rv">Our Nashik office, built like a honeycomb: open, green and full of light, and the people who make it buzz.</p>
-          <HiveGallery />
+        </div>
+        <div className="hive-strip" aria-label="Photos from the Touchwood Hive">
+          <div className="hive-track">
+            {[...hiveMixed.slice(0, 8), ...hiveMixed.slice(0, 8)].map((h, i) => (
+              <Link href="/hive/" key={i} className="hive-shot" aria-hidden={i >= 8 || undefined} tabIndex={i >= 8 ? -1 : undefined}>
+                <img src={h.src} alt={h.alt} loading="lazy" />
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="wrap">
+          <div className="cta" style={{ marginTop: 28 }}><Link className="btn" href="/hive/">View all {hiveMixed.length} photos →</Link></div>
         </div>
       </section>
     </>
