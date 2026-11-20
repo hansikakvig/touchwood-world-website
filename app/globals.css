@@ -654,3 +654,21 @@ main > * { animation: pgin .5s ease both; }
   .lb-p, .lb-n { top: auto; bottom: 10px; transform: none; }
 }
 @media (prefers-reduced-motion: reduce) { .hg-item, .lb, .lb img { animation: none; } }
+
+/* ---------- Reviews: compact cards ---------- */
+.rvw-badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 26px; }
+.rvw-badges span { background: #fff; border: 1.5px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 14px; color: var(--mute); }
+.rvw-badges b { color: var(--or); margin-right: 4px; }
+.rvw { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 18px; scrollbar-width: thin; }
+.rvw-card { flex: 0 0 min(320px, 82vw); scroll-snap-align: start; margin: 0; background: #fff; border: 1.5px solid var(--line); border-radius: 20px; padding: 22px 22px 18px; display: flex; flex-direction: column; gap: 12px; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s; animation: hg-in .7s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--d, 0) * 90ms); }
+.rvw-card:hover { transform: translateY(-5px); box-shadow: 0 16px 34px rgba(43,26,16,.10); border-color: var(--honey); }
+.rvw-stars { color: var(--honey); letter-spacing: 2px; font-size: 15px; }
+.rvw-card blockquote { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink); display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.rvw-card figcaption { margin-top: auto; display: flex; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.rvw-av { flex: none; width: 38px; height: 44px; background: var(--or); color: #fff; display: flex; align-items: center; justify-content: center; font: 800 14px var(--head); }
+.rvw-card:nth-child(3n+2) .rvw-av { background: var(--honey); color: var(--bark); }
+.rvw-card:nth-child(3n) .rvw-av { background: var(--bark); }
+.rvw-card figcaption b { display: block; font-size: 15px; }
+.rvw-card figcaption small { color: var(--mute); font-size: 12.5px; }
+@media (prefers-reduced-motion: reduce) { .rvw-card { animation: none; } }
+.rvw-q { font: 800 40px/0.6 var(--head); color: var(--honey); height: 18px; }

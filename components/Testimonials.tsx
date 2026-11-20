@@ -1,22 +1,46 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { testimonials } from "@/lib/data";
 
+const initials = (n: string) => n.split(/\s+/).filter((w) => /^[A-Z]/.test(w)).slice(0, 2).map((w) => w[0]).join("");
+
 export default function Testimonials() {
-  const [i, setI] = useState(0);
-  useEffect(() => { const t = setInterval(() => setI((v) => (v + 1) % testimonials.length), 6000); return () => clearInterval(t); }, []);
+  const el = useRef<HTMLDivElement>(null);
+  const paused = useRef(false);
+  const step = (dir: number) => {
+    const c = el.current; if (!c || !c.firstElementChild) return;
+    const w = (c.firstElementChild as HTMLElement).offsetWidth + 16;
+    const atEnd = c.scrollLeft + w > c.scrollWidth - c.clientWidth - 4;
+    const atStart = c.scrollLeft < 4;
+    c.scrollTo({ left: dir > 0 ? (atEnd ? 0 : c.scrollLeft + w) : (atStart ? c.scrollWidth : c.scrollLeft - w), behavior: "smooth" });
+  };
+  useEffect(() => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = setInterval(() => { if (!paused.current) step(1); }, 4500);
+    return () => clearInterval(t);
+  }, []);
   return (
     <>
-      <div className="qs" aria-live="polite">
-        {testimonials.map((q, j) => (
-          <figure key={j} className={j === i ? "on" : undefined} aria-hidden={j !== i}>
-            <blockquote>“{q.q}”</blockquote>
-            <figcaption>{q.n}</figcaption>
+      <div className="rvw-badges">
+        <span><b>4.8 ★</b> Touchwood Bliss · 12,000+ guest reviews</span>
+        <span><b>★★★★★</b> reviews from Touchwood Lifespaces customers</span>
+      </div>
+      <div className="rvw" ref={el} onMouseEnter={() => (paused.current = true)} onMouseLeave={() => (paused.current = false)}
+        onTouchStart={() => (paused.current = true)} onFocus={() => (paused.current = true)}>
+        {testimonials.map((t, i) => (
+          <figure className="rvw-card" key={t.n} style={{ "--d": i % 4 } as React.CSSProperties}>
+            {t.v === "Touchwood Lifespaces" ? <div className="rvw-stars" aria-label="5 out of 5 stars">★★★★★</div> : <div className="rvw-q" aria-hidden="true">“</div>}
+            <blockquote>“{t.q}”</blockquote>
+            <figcaption>
+              <span className="rvw-av hx" aria-hidden="true">{initials(t.n)}</span>
+              <span><b>{t.n}</b><small>{t.r ? `${t.r} · ` : ""}{t.v}</small></span>
+            </figcaption>
           </figure>
         ))}
       </div>
-      <div className="qdots">
-        {testimonials.map((q, j) => (<button key={j} aria-label={`Quote from ${q.n}`} className={j === i ? "on" : undefined} onClick={() => setI(j)} />))}
+      <div className="scroll-ctl">
+        <button className="rbtn" aria-label="Previous review" onClick={() => step(-1)}>←</button>
+        <button className="rbtn" aria-label="Next review" onClick={() => step(1)}>→</button>
       </div>
     </>
   );

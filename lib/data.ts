@@ -53,10 +53,18 @@ export const family = [
   ["/logos/brandandbeeyond.png", "Brand and Beeyond", "Branding agency"],
 ];
 
+/** Real reviews, as published on touchwoodworld.com and touchwoodlifespaces.com. */
 export const testimonials = [
-  { q: "Good initiative plan. And it’s more helpful.", n: "Akshay Kulthe" },
-  { q: "Excellent team work. I wish you the greatest services.", n: "Tejas Yadav" },
-];
+  { q: "Touchwood Lifespaces is honest and trustworthy. I have done many property deals with them and I’m very happy. If you are looking for NA plots in Igatpuri or the best NA plots near Mumbai, they are the right choice.", n: "Sachin Bedade", v: "Touchwood Lifespaces" },
+  { q: "It was really good experience dealing with team from Touchwood. Nice property in nature, good knowledge of team regarding real estate market, immediate clarification of queries, all clear documentation, good support during purchase process were major highlights.", n: "Pankaj Shingote", v: "Touchwood Lifespaces" },
+  { q: "Good initiative plan. And it’s more helpful.", n: "Akshay Kulthe", v: "Touchwood World" },
+  { q: "We were looking for land for sale in Igatpuri to build our dream holiday home, and Touchwood Lifespaces exceeded our expectations! The plots are beautifully located, surrounded by nature, and just a short drive from Mumbai.", n: "Rajesh Marathe", r: "Chartered Accountant", v: "Touchwood Lifespaces" },
+  { q: "Finding plots near Mumbai that offer both peace and investment potential felt impossible until we discovered Touchwood Lifespaces. Their NA plots are clear-titled, well-developed, and give us the chance to create the bungalow we always dreamed of.", n: "Mohini Desai", r: "Entrepreneur", v: "Touchwood Lifespaces" },
+  { q: "Great services and ideas regarding real estate investments. Would love to work together in future also.", n: "Chintan Nahar", v: "Touchwood Lifespaces" },
+  { q: "We recently bought a plot in Igatpuri at Touchwood Lifespaces, and the experience has been amazing! Pure nature, great infrastructure, and seamless service.", n: "Sneha & Manish Desai", r: "Fitness Coach", v: "Touchwood Lifespaces" },
+  { q: "Excellent team work. I wish you the greatest services.", n: "Tejas Yadav", r: "Manager", v: "Touchwood World" },
+  { q: "Touchwood Lifespaces helped us secure a resort plot in Igatpuri where we plan to build our dream getaway. It’s more than just land, it’s a legacy we are excited to create.", n: "Sumit Das", r: "Pulmonologist", v: "Touchwood Lifespaces" },
+] as { q: string; n: string; r?: string; v: string }[];
 
 export const nav = [
   { href: "/", label: "Home" },

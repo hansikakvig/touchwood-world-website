@@ -182,7 +182,7 @@ export default function Home() {
       <section>
         <div className="wrap">
           <span className="kicker">Kind words</span>
-          <h2>What people say.</h2>
+          <h2 className="rv">What people say.</h2>
           <Testimonials />
         </div>
       </section>
