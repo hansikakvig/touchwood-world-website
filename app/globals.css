@@ -185,7 +185,6 @@ h2 { font-size: clamp(32px, 4.4vw, 54px); font-weight: 800; max-width: 780px; }
 .mq:hover .tr { animation-play-state: paused; }
 .mq .logo-tile { background: #fff; border: 1.5px solid var(--line); border-radius: 18px; padding: 20px 26px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 10px; width: 220px; height: 120px; margin-right: 16px; }
 .mq .logo-tile img { height: 56px; width: auto; max-width: 170px; object-fit: contain; }
-.logo-tile.dark-tile { background: var(--bark); }
 .mq small { color: var(--mute); font-size: 13px; }
 
 /* pictures */
@@ -504,7 +503,6 @@ h2.rv.in { background-size: 120px .14em; }
 .pic.has-logo { background: var(--comb-dk), linear-gradient(160deg, var(--honey), var(--or)); }
 .pic.has-logo .lgx { transition: rotate .6s cubic-bezier(.2,.8,.2,1.4), scale .4s; }
 .card:hover .pic.has-logo .lgx, .slide .pic.has-logo .lgx { scale: 1.05; }
-.lgx.dark { background: var(--bark); }
 
 /* page transition */
 main > * { animation: pgin .5s ease both; }
@@ -527,8 +525,6 @@ main > * { animation: pgin .5s ease both; }
 .fam-tile img { height: 62px; width: auto; max-width: 190px; object-fit: contain; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
 .fam-tile:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(43,26,16,.12); border-color: var(--honey); }
 .fam-tile:hover img { transform: scale(1.07); }
-.fam-tile.dark-tile { background: var(--bark); border-color: var(--bark); }
-.fam-tile.dark-tile small { color: var(--on); opacity: .85; }
 .js .fam-root.rv { transform: scale(.85); }
 .js .fam-root.rv.in { transform: none; }
 .js .fam-tile.rv { transform: translateY(30px) scale(.94); transition: opacity .6s ease calc(var(--d, 0) * 90ms + .5s), transform .6s cubic-bezier(.2,.8,.2,1) calc(var(--d, 0) * 90ms + .5s), box-shadow .35s, border-color .35s; }
@@ -590,7 +586,6 @@ main > * { animation: pgin .5s ease both; }
   .js .fam-root.rv, .js .fam-tile.rv, .js .zz-media.rv, .js .zz-body.rv, .js .zz-media .hx, .js .zz-body li, .js .fam-line.rv { opacity: 1; transform: none; transition: none; }
   .wa, .wa::before { animation: none; }
 }
-.zz-logos .hx.dk { background: var(--bark); }
 .zz-body li { padding: 0; }
 .zz-body li a { display: inline-block; padding: 8px 16px; color: var(--ink); text-decoration: none; border-radius: 999px; transition: background .25s, color .25s, transform .25s; }
 .zz-body li a:hover, .zz-body li a:focus-visible { background: var(--or); color: #fff; transform: translateY(-2px); }

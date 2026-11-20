@@ -51,7 +51,7 @@ export default function Home() {
             <div className="fam-line rv" aria-hidden="true" />
             <div className="fam-kids">
               {family.slice(1).map(([src, alt, sm], k) => (
-                <div className={`fam-tile rv${src.includes("fairytale") ? " dark-tile" : ""}`} key={src} style={{ "--d": k } as React.CSSProperties}>
+                <div className="fam-tile rv" key={src} style={{ "--d": k } as React.CSSProperties}>
                   <img src={src} alt={alt} loading="lazy" /><small>{sm}</small>
                 </div>
               ))}
@@ -92,7 +92,7 @@ export default function Home() {
                   <img src={sectorImg[i % sectorImg.length]} alt={h} loading="lazy" />
                   <span className="zz-num">{String(i + 1).padStart(2, "0")}</span>
                   <div className="zz-logos">
-                    {list.map((l) => logoFor[l] ? <VLink name={l} className={`hx${l.startsWith("Fairytale") ? " dk" : ""}`} key={l}><img src={logoFor[l]} alt={l} /></VLink> : null)}
+                    {list.map((l) => logoFor[l] ? <VLink name={l} className="hx" key={l}><img src={logoFor[l]} alt={l} /></VLink> : null)}
                   </div>
                 </div>
                 <div className="zz-body rv">
