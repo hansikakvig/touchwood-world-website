@@ -10,7 +10,7 @@ export default function Testimonials() {
         <span><b>4.8 ★</b> Touchwood Bliss · 12,000+ guest reviews</span>
         <span><b>★★★★★</b> reviews from Touchwood Lifespaces customers</span>
       </div>
-      <div className="rvw">
+      <div className="rvw" tabIndex={0} aria-label="Customer reviews (tap or hover to pause)">
         <div className="rvw-track">
           {[...testimonials, ...testimonials].map((t, i) => (
             <figure className="rvw-card" key={i} aria-hidden={i >= testimonials.length || undefined}>

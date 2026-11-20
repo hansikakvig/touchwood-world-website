@@ -733,3 +733,11 @@ main > * { animation: pgin .5s ease both; }
   .prin-card p { padding-right: 40px; }
   .prin-no { top: 18px; transform: none; }
 }
+
+/* calmer motion: tap/focus pauses the sliding strips; reduce-motion stops them */
+.rvw:focus-within .rvw-track, .rvw:active .rvw-track, .hive-strip:focus-within .hive-track, .hive-strip:active .hive-track { animation-play-state: paused; }
+.rvw:focus-visible { outline: 3px solid var(--honey); outline-offset: 4px; border-radius: 22px; }
+@media (prefers-reduced-motion: reduce) {
+  .rvw-track, .hive-track { animation: none; }
+  .rvw, .hive-strip { overflow-x: auto; -webkit-mask: none; mask: none; }
+}
