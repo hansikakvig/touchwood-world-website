@@ -17,13 +17,24 @@ const ventureExtras: Record<string, { short: string; logo?: string; img?: string
 
 export const ventures: Venture[] = raw.biz.map((b) => ({ ...b, ...ventureExtras[b.slug] }));
 
-const blogImg: Record<string, string | undefined> = {
-  "why-igatpuri-is-the-next-wellness-destination": "/images/hive-ambience-5.webp",
-  "what-is-a-self-love-retreat": "/images/hive-ambience-2.webp",
-  "choosing-a-plot-in-igatpuri-and-nashik": "/images/hive-ambience-12.webp",
-  "how-brand-and-beeyond-builds-brands": "/images/brandandbeeyond-hive.jpg",
+/** Cover photo for each post (real photos from the Touchwood ventures). */
+const blogImg: Record<string, string> = {
+  "buying-na-plots-in-igatpuri-checklist": "/images/blog/na-plots-checklist.webp",
+  "destination-wedding-in-igatpuri-planning-guide": "/images/blog/destination-wedding-plan.webp",
+  "best-time-to-visit-igatpuri": "/images/blog/best-time-igatpuri.webp",
+  "family-getaway-near-mumbai-igatpuri": "/images/blog/family-getaway.webp",
+  "harmony-for-working-women": "/images/blog/women-harmony.webp",
+  "inside-the-touchwood-hive-office": "/images/hive-office.webp",
+  "why-igatpuri-is-the-next-wellness-destination": "/images/blog/igatpuri-wellness.webp",
+  "what-is-a-self-love-retreat": "/images/blog/self-love-retreat.webp",
+  "choosing-a-plot-in-igatpuri-and-nashik": "/images/blog/choosing-a-plot.webp",
+  "how-brand-and-beeyond-builds-brands": "/images/blog/brand-and-beeyond.webp",
 };
-export const blogs = raw.blogs.map((b) => ({ ...b, img: blogImg[b.slug] }));
+export type Blog = { slug: string; t: string; b: string[]; d?: string; cat?: string; date?: string; kw?: string[]; img: string };
+export const blogs: Blog[] = raw.blogs.map((b) => ({ ...b, img: blogImg[b.slug] }));
+/** Plain-text first paragraph (no headings, lists or link syntax), for summaries. */
+export const blogIntro = (b: Blog) => b.d ?? b.b.find((p) => !p.startsWith("## ") && !p.startsWith("- "))!.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+export const readMins = (b: Blog) => Math.max(1, Math.round(b.b.join(" ").split(/\s+/).length / 200));
 
 export const { team, strat, stats, careers, social, contact } = raw;
 export const sys = raw.sys as [string, string][];

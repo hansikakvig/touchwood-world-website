@@ -755,3 +755,12 @@ main > * { animation: pgin .5s ease both; }
 @media (max-width: 860px) { .fam-sec .fam-kids { grid-template-columns: repeat(3, 1fr); gap: 10px; } .fam-sec .fam-tile { min-height: 96px; padding: 14px 8px 10px; } .fam-sec .fam-tile img { height: 36px; max-width: 100%; } .fam-sec .fam-tile small { font-size: 10.5px; text-align: center; } }
 @media (max-width: 420px) { .fam-sec .fam-kids { grid-template-columns: 1fr 1fr; } .fam-sec { padding-top: 40px; padding-bottom: 48px; } }
 @media (max-width: 600px) { .fam-sec .fam-root { padding: 14px 22px; } .fam-sec .fam-root img { height: 38px; } .fam-sec .fam-line { height: 22px; } }
+
+/* ---------- Blog posts ---------- */
+.art h2 { font-size: clamp(22px, 2.6vw, 28px); margin: 34px 0 10px; }
+.art-list { margin: 0 0 18px; padding-left: 0; list-style: none; display: grid; gap: 8px; }
+.art-list li { position: relative; padding-left: 26px; line-height: 1.65; }
+.art-list li::before { content: ""; position: absolute; left: 0; top: .45em; width: 13px; height: 15px; background: var(--honey); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+.art p a, .art-list a { color: var(--or-dk); font-weight: 600; }
+.bl-cat { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--or); margin-bottom: 6px; }
+.art-list li { font-size: 18px; }
