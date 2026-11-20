@@ -122,3 +122,10 @@ export const interests = [
   { k: "partner", label: "Partner or invest", to: "Touchwood World" },
   { k: "other", label: "Something else", to: "Touchwood World" },
 ];
+
+/** Official Touchwood World social profiles (as linked from touchwoodworld.com). Add `linkedin` once the company page URL is known; empty entries are hidden. */
+export const socials: { k: "instagram" | "facebook" | "linkedin"; label: string; url: string }[] = [
+  { k: "instagram", label: "Instagram", url: "https://www.instagram.com/touchwoodworld/" },
+  { k: "facebook", label: "Facebook", url: "https://www.facebook.com/touchwoodworld/" },
+  { k: "linkedin", label: "LinkedIn", url: "" },
+];

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ventures, contact } from "@/lib/data";
+import SocialIcons from "./SocialIcons";
 
 export default function Footer() {
   return (
@@ -10,6 +11,7 @@ export default function Footer() {
             <span className="lg"><img src="/logos/touchwood.png" alt="Touchwood" /></span>
             <p>We Dream. We Believe. We Achieve.</p>
             <p>{contact.addr}</p>
+            <SocialIcons />
           </div>
           <div>
             <h4>Ventures</h4>

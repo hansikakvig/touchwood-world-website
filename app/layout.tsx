@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import RevealObserver from "@/components/RevealObserver";
 import WhatsApp from "@/components/WhatsApp";
 import { SITE_URL } from "@/lib/site";
-import { contact, ventures, siteUrl } from "@/lib/data";
+import { contact, ventures, siteUrl, socials } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: { default: "Touchwood World – Optimistic by nature", template: "%s · Touchwood World" },
@@ -27,6 +27,7 @@ const orgLd = {
   email: contact.email,
   telephone: contact.phones[0].replace(/\s/g, ""),
   address: { "@type": "PostalAddress", streetAddress: "JITO Business Bay, Second Floor, Office No. 12, Near Sandeep Hotel, Mumbai Naka", addressLocality: "Nashik", addressRegion: "Maharashtra", addressCountry: "IN" },
+  sameAs: socials.filter((s) => s.url).map((s) => s.url),
   subOrganization: ventures.filter((v) => siteUrl(v.url)).map((v) => ({ "@type": "Organization", name: v.n, url: siteUrl(v.url) })),
 };
 
