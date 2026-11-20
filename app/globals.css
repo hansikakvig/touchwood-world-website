@@ -673,3 +673,10 @@ main > * { animation: pgin .5s ease both; }
 @media (prefers-reduced-motion: reduce) { .rvw-card { animation: none; } }
 .rvw-q { font: 800 40px/0.6 var(--head); color: var(--honey); height: 18px; }
 .rvw { scrollbar-width: none; } .rvw::-webkit-scrollbar { display: none; }
+/* continuous review strip */
+.rvw { display: block; overflow: hidden; scroll-snap-type: none; padding: 6px 0 18px; -webkit-mask: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+.rvw-track { display: flex; width: max-content; animation: rvw-run 45s linear infinite; }
+.rvw:hover .rvw-track { animation-play-state: paused; }
+.rvw-track .rvw-card { flex: 0 0 300px; margin-right: 16px; animation: none; }
+@keyframes rvw-run { to { transform: translateX(-50%); } }
+@media (max-width: 600px) { .rvw-track { animation-duration: 35s; } .rvw-track .rvw-card { flex-basis: 260px; } }
