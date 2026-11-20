@@ -620,3 +620,37 @@ main > * { animation: pgin .5s ease both; }
   .prin-no { top: 50%; transform: translateY(-50%); right: 16px; font-size: 30px; color: var(--line); }
 }
 @media (prefers-reduced-motion: reduce) { .js .prin-card.rv { opacity: 1; transform: none; transition: none; } }
+
+/* ---------- Touchwood Hive gallery (About page) ---------- */
+.hg-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 30px 0 26px; }
+.hg-tabs button { font: 600 15px var(--body); padding: 10px 20px; border-radius: 999px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; transition: background .25s, color .25s, border-color .25s, transform .25s; }
+.hg-tabs button small { opacity: .6; margin-left: 4px; font-size: 12px; }
+.hg-tabs button:hover { transform: translateY(-2px); border-color: var(--honey); }
+.hg-tabs button.on { background: var(--or); border-color: var(--or); color: #fff; }
+.hg { columns: 4 240px; column-gap: 16px; }
+.hg-item { display: block; width: 100%; margin: 0 0 16px; padding: 0; border: 0; border-radius: 18px; overflow: hidden; position: relative; cursor: zoom-in; break-inside: avoid; background: var(--bg2); animation: hg-in .7s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--d, 0) * 70ms); }
+.hg-item img { display: block; width: 100%; height: auto; transition: transform .8s cubic-bezier(.2,.8,.2,1), filter .5s; }
+.hg-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 55%, rgba(43,26,16,.7)); opacity: 0; transition: opacity .4s; }
+.hg-cap { position: absolute; left: 14px; bottom: 12px; z-index: 1; color: #fff; font-weight: 700; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; opacity: 0; transform: translateY(8px); transition: opacity .4s, transform .4s; }
+.hg-item:hover img, .hg-item:focus-visible img { transform: scale(1.07); }
+.hg-item:hover::after, .hg-item:hover .hg-cap, .hg-item:focus-visible::after, .hg-item:focus-visible .hg-cap { opacity: 1; transform: none; }
+.hg-item:focus-visible { outline: 3px solid var(--or); outline-offset: 3px; }
+@keyframes hg-in { from { opacity: 0; transform: translateY(26px) scale(.97); } }
+.lb { position: fixed; inset: 0; z-index: 100; background: rgba(20,12,6,.92); display: flex; align-items: center; justify-content: center; padding: 60px 70px; animation: lb-in .3s ease both; }
+.lb img { max-width: 100%; max-height: 100%; border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,.5); animation: lb-zoom .4s cubic-bezier(.2,.8,.2,1) both; }
+.lb button { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 22px; cursor: pointer; transition: background .25s; }
+.lb button:hover { background: var(--or); }
+.lb-x { top: 16px; right: 16px; font-size: 30px !important; }
+.lb-p { left: 14px; top: 50%; transform: translateY(-50%); }
+.lb-n { right: 14px; top: 50%; transform: translateY(-50%); }
+.lb-c { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); color: #fff; opacity: .8; font-size: 14px; }
+@keyframes lb-in { from { opacity: 0; } }
+@keyframes lb-zoom { from { opacity: 0; transform: scale(.92); } }
+@media (max-width: 600px) {
+  .hg { columns: 2 140px; column-gap: 10px; }
+  .hg-item { margin-bottom: 10px; border-radius: 12px; }
+  .hg-tabs button { padding: 8px 14px; font-size: 14px; }
+  .lb { padding: 70px 12px; }
+  .lb-p, .lb-n { top: auto; bottom: 10px; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .hg-item, .lb, .lb img { animation: none; } }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import HiveGallery from "@/components/HiveGallery";
 import { strat, team, sys, stats } from "@/lib/data";
 
 export const metadata: Metadata = { title: "About" };
@@ -41,6 +42,14 @@ export default function About() {
       <section className="alt">
         <div className="wrap">
           <div className="stats">{stats.map(([v, l]) => (<div key={l} className="rv"><div className="hx">{v}</div><span>{l}</span></div>))}</div>
+        </div>
+      </section>
+      <section className="hive-gal">
+        <div className="wrap">
+          <span className="kicker">Gallery</span>
+          <h2 className="rv">Inside the Touchwood Hive.</h2>
+          <p className="lead rv">Our Nashik office, built like a honeycomb: open, green and full of light, and the people who make it buzz.</p>
+          <HiveGallery />
         </div>
       </section>
     </>
