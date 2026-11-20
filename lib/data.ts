@@ -6,13 +6,13 @@ export type Venture = {
 };
 
 const ventureExtras: Record<string, { short: string; logo?: string; img?: string }> = {
-  "touchwood-lifespaces": { short: "Lifespaces", logo: "/logos/lifespaces.png" },
-  "touchwood-bliss": { short: "Bliss", logo: "/logos/bliss.png",  },
-  "fairytale-weddings": { short: "Fairytale Wedding", logo: "/logos/fairytale.png",  },
-  "harmony-retreat": { short: "Harmony Retreat", logo: "/logos/harmony-retreat.png",  },
-  "harmony-movement": { short: "Harmony Movement", logo: "/logos/harmony-movement.png",  },
-  "brand-and-beeyond": { short: "Brand & Beeyond", logo: "/logos/brandandbeeyond.png" },
-  "touchwood-foundation": { short: "Foundation" },
+  "touchwood-lifespaces": { short: "Lifespaces", logo: "/logos/lifespaces.png", img: "/images/ventures/lifespaces.webp" },
+  "touchwood-bliss": { short: "Bliss", logo: "/logos/bliss.png", img: "/images/ventures/bliss.webp" },
+  "fairytale-weddings": { short: "Fairytale Wedding", logo: "/logos/fairytale.png", img: "/images/ventures/fairytale-weddings.webp" },
+  "harmony-retreat": { short: "Harmony Retreat", logo: "/logos/harmony-retreat.png", img: "/images/ventures/harmony-retreat.webp" },
+  "harmony-movement": { short: "Harmony Movement", logo: "/logos/harmony-movement.png", img: "/images/ventures/harmony-movement.webp" },
+  "brand-and-beeyond": { short: "Brand & Beeyond", logo: "/logos/brandandbeeyond.png", img: "/images/ventures/brand-and-beeyond.webp" },
+  "touchwood-foundation": { short: "Foundation", img: "/images/hive-ourpeople-3.webp" },
 };
 
 export const ventures: Venture[] = raw.biz.map((b) => ({ ...b, ...ventureExtras[b.slug] }));

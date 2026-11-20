@@ -7,7 +7,7 @@ import Pic from "@/components/Pic";
 import { stats, family, sectors, reach, sys, team, strat, ventures, siteUrl } from "@/lib/data";
 
 /** Photo shown beside each sector (swap for real project photos when available). */
-const sectorImg = ["/images/hive-ambience-3.webp", "/images/hive-ambience-9.webp", "/images/brandandbeeyond-hive.jpg", "/images/hive-ourpeople-4.webp"];
+const sectorImg = ["/images/ventures/sector-real-estate.webp", "/images/ventures/sector-hospitality.webp", "/images/brandandbeeyond-hive.jpg", "/images/hive-ourpeople-4.webp"];
 const logoFor: Record<string, string> = {
   "Touchwood Lifespaces": "/logos/lifespaces.png", "Touchwood Bliss": "/logos/bliss.png", "Fairytale Weddings": "/logos/fairytale.png",
   "The Harmony Retreat": "/logos/harmony-retreat.png", "The Harmony Movement": "/logos/harmony-movement.png", "Brand and Beeyond": "/logos/brandandbeeyond.png",
