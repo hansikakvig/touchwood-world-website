@@ -599,3 +599,29 @@ main > * { animation: pgin .5s ease both; }
 .card-wrap .card { flex: 1 1 auto; }
 .site-link { align-self: flex-start; font-weight: 700; font-size: 14px; color: var(--or-dk); text-decoration: none; padding: 7px 14px; border: 1.5px solid var(--line); border-radius: 999px; background: #fff; transition: background .25s, color .25s, border-color .25s; }
 .site-link:hover, .site-link:focus-visible { background: var(--or); color: #fff; border-color: var(--or); }
+
+/* ---------- Why partners choose Touchwood: numbered principle cards ---------- */
+.prin { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; counter-reset: p; }
+.prin-card { position: relative; overflow: hidden; background: #fff; border: 1.5px solid var(--line); border-radius: 22px; padding: 26px 24px 24px; min-height: 150px; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; isolation: isolate; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s, color .35s; }
+.prin-card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(135deg, var(--or), var(--honey)); transform: translateY(101%); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.prin-no { position: absolute; top: 14px; right: 20px; font: 800 46px/1 var(--head); color: var(--bg2); transition: color .35s; }
+.prin-card .hx { width: 34px; height: 39px; background: var(--or); transition: transform .5s cubic-bezier(.2,.8,.2,1), background .35s; }
+.prin-card:nth-child(3n+2) .hx { background: var(--honey); }
+.prin-card:nth-child(3n) .hx { background: var(--bark); }
+.prin-card h3 { margin: 0; font-size: 19px; line-height: 1.3; }
+.prin-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(242,106,27,.22); border-color: transparent; color: #fff; }
+.prin-card:hover::before { transform: none; }
+.prin-card:hover .prin-no { color: rgba(255,255,255,.35); }
+.prin-card:hover .hx { background: #fff; transform: rotate(90deg); }
+.js .prin-card.rv { transform: translateY(30px) scale(.96); transition: opacity .6s ease calc(var(--d, 0) * 110ms), transform .6s cubic-bezier(.2,.8,.2,1) calc(var(--d, 0) * 110ms), box-shadow .35s, border-color .35s, color .35s; }
+.js .prin-card.rv.in { transform: none; }
+.js .prin-card.rv.in:hover { transform: translateY(-6px); transition-delay: 0s; }
+@media (max-width: 900px) { .prin { grid-template-columns: 1fr 1fr; gap: 14px; } }
+@media (max-width: 560px) {
+  .prin { grid-template-columns: 1fr; gap: 10px; margin-top: 28px; }
+  .prin-card { min-height: 0; flex-direction: row; justify-content: flex-start; align-items: center; padding: 16px 18px; gap: 14px; border-radius: 18px; }
+  .prin-card .hx { width: 26px; height: 30px; flex: none; }
+  .prin-card h3 { font-size: 16px; padding-right: 44px; }
+  .prin-no { top: 50%; transform: translateY(-50%); right: 16px; font-size: 30px; color: var(--line); }
+}
+@media (prefers-reduced-motion: reduce) { .js .prin-card.rv { opacity: 1; transform: none; transition: none; } }

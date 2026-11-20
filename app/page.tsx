@@ -128,7 +128,15 @@ export default function Home() {
           <span className="kicker">How we work</span>
           <h2 className="rv">Why partners choose Touchwood.</h2>
           <p className="lead">Nine principles that run through every venture.</p>
-          <div className="sys">{sys.map((s) => (<div className="rv" key={s}><i className="hx" />{s}</div>))}</div>
+          <div className="prin">
+            {sys.map((s, i) => (
+              <div className="prin-card rv" key={s} style={{ "--d": i % 3 } as React.CSSProperties}>
+                <span className="prin-no">{String(i + 1).padStart(2, "0")}</span>
+                <i className="hx" aria-hidden="true" />
+                <h3>{s}</h3>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
