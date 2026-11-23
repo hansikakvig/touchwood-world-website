@@ -107,6 +107,7 @@ export const hiveMixed = Array.from({ length: Math.max(A.length, P.length) }, (_
 export const teamPhoto: Record<string, string> = {
   "Kapil Surana": "/images/team/kapil-surana.webp",
   "Rupali Surana": "/images/team/rupali-surana.webp",
+  "Sainath Shinde": "/images/team/sainath-shinde.jpeg"
 };
 
 /** Named Touchwood Lifespaces projects (from the venture content). */
