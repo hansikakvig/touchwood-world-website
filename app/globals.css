@@ -572,6 +572,37 @@ main > * { animation: pgin .5s ease both; }
   .zz-logos .hx { width: 100px; height: 50px; padding: 8px 10px; }
 }
 
+/* sectors on phones: coloured cards that stack over each other as you scroll */
+@media (max-width: 800px) {
+  .zz { display: block; overflow: visible; padding: 6px 0 20px; }
+  .zz-row, .zz-row.rev { position: sticky; top: calc(88px + var(--k, 0) * 14px); display: flex; flex-direction: column; gap: 0; margin-bottom: 34px; border-radius: 30px; overflow: hidden; color: #fff; background: var(--cc, var(--or)); box-shadow: 0 -10px 30px rgba(43,26,16,.18), 0 24px 40px rgba(43,26,16,.18); transform-origin: 50% 0; }
+  .zz-row:nth-child(1) { --k: 0; --cc: var(--or); }
+  .zz-row:nth-child(2) { --k: 1; --cc: #e59a1c; color: var(--bark); }
+  .zz-row:nth-child(3) { --k: 2; --cc: var(--bark); }
+  .zz-row:nth-child(4) { --k: 3; --cc: #5f7d28; }
+  .zz-row:nth-child(2) .zz-tag, .zz-row:nth-child(2) .zz-body p { color: var(--bark); }
+  .zz-media { border-radius: 0; box-shadow: none; aspect-ratio: 16 / 10; clip-path: polygon(0 0, 100% 0, 100% 90%, 87.5% 100%, 75% 90%, 62.5% 100%, 50% 90%, 37.5% 100%, 25% 90%, 12.5% 100%, 0 90%); }
+  .zz-media::after { background: linear-gradient(200deg, transparent 50%, rgba(0,0,0,.25)); }
+  .zz-media > img { animation: zz-kb 10s ease-in-out infinite alternate; }
+  .zz-num { font-size: 64px; -webkit-text-stroke: 0; }
+  .zz-body { padding: 4px 24px 28px; }
+  .zz-tag, .zz-body p { color: inherit; opacity: .9; }
+  .zz-body h3 { font-size: 28px; }
+  .zz-body p { font-size: 15.5px; margin-bottom: 16px; }
+  .zz-body li { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.35); color: inherit; }
+  .zz-row:nth-child(2) li { background: rgba(43,26,16,.12); border-color: rgba(43,26,16,.25); }
+  .zz-body li a { color: inherit; }
+  .js .zz .zz-media.rv, .js .zz .zz-row.rev .zz-media.rv, .js .zz .zz-body.rv, .js .zz .zz-row.rev .zz-body.rv { transform: none !important; opacity: 1 !important; }
+  .js .zz .zz-media.rv, .js .zz .zz-row.rev .zz-media.rv, .js .zz .zz-row .zz-media.rv.in { clip-path: polygon(0 0, 100% 0, 100% 90%, 87.5% 100%, 75% 90%, 62.5% 100%, 50% 90%, 37.5% 100%, 25% 90%, 12.5% 100%, 0 90%) !important; }
+  .js .zz .zz-media .hx, .js .zz .zz-body li { opacity: 1; transform: none; }
+}
+@keyframes zz-kb { to { transform: scale(1.14) translate(-2%, -2%); } }
+@keyframes zz-rise { from { transform: translateY(70px) scale(.93) rotate(2deg); opacity: .3; } }
+@supports (animation-timeline: view()) {
+  @media (max-width: 800px) { .zz-row { animation: zz-rise linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; } }
+}
+@media (prefers-reduced-motion: reduce) { .zz-media > img, .zz-row { animation: none !important; } }
+
 /* ---------- WhatsApp floating button ---------- */
 .wa { position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 28px rgba(37,211,102,.45); transition: transform .3s ease; animation: wa-in .6s 1s both cubic-bezier(.2,.8,.2,1); }
 .wa::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #25d366; z-index: -1; animation: wa-ping 2.4s 2s infinite; }
