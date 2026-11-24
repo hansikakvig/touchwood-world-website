@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import Link from "next/link";
+import WhyHex from "@/components/WhyHex";
 import { hiveMixed } from "@/lib/data";
 import { strat, team, sys, stats, teamPhoto } from "@/lib/data";
 
@@ -37,7 +38,7 @@ export default function About() {
         <div className="wrap">
           <span className="kicker">How we work</span>
           <h2 className="rv">The systems behind the brand.</h2>
-          <div className="sys two">{sys.map(([h, p]) => (<div className="rv" key={h}><i className="hx" /><span>{h}<small>{p}</small></span></div>))}</div>
+          <WhyHex items={sys as unknown as string[][]} />
         </div>
       </section>
       <section className="alt">
