@@ -3,8 +3,10 @@ import HomeHero from "@/components/HomeHero";
 import Counter from "@/components/Counter";
 import VentureCards from "@/components/VentureCards";
 import Testimonials from "@/components/Testimonials";
+import FamilyTree from "@/components/FamilyTree";
+import WhyHex from "@/components/WhyHex";
 import Pic from "@/components/Pic";
-import { stats, family, sectors, reach, sys, team, strat, ventures, siteUrl, teamPhoto, projects, interests } from "@/lib/data";
+import { stats, sectors, reach, sys, strat, ventures, siteUrl, projects, interests } from "@/lib/data";
 
 /** Photo shown beside each sector (swap for real project photos when available). */
 const sectorImg = ["/images/ventures/sector-real-estate.webp", "/images/ventures/sector-hospitality.webp", "/images/brandandbeeyond-hive.jpg", "/images/hive-ourpeople-4.webp"];
@@ -31,36 +33,12 @@ export default function Home() {
     <>
       <HomeHero />
 
-      <div className="glance">
-        <div className="wrap">
-          <div className="glance-card">
-            {stats.map(([v, l]) => (<div className="it" key={l}><Counter value={v} /><span>{l}</span></div>))}
-          </div>
-          <div className="projs">
-            <span>Our projects:</span>
-            {projects.map((p) => (<Link key={p} href="/ventures/touchwood-lifespaces/">{p}</Link>))}
-          </div>
-        </div>
-      </div>
-
       <section className="fam-sec">
         <div className="wrap">
           <span className="kicker">Our family</span>
           <h2 className="rv">The Touchwood family.</h2>
           <p className="lead rv">One group, seven ventures, each leading in its own field.</p>
-          <div className="fam">
-            {family.slice(0, 1).map(([src, alt, sm]) => (
-              <div className="fam-root rv" key={src}><img src={src} alt={alt} /><small>{sm}</small></div>
-            ))}
-            <div className="fam-line rv" aria-hidden="true" />
-            <div className="fam-kids">
-              {family.slice(1).map(([src, alt, sm], k) => (
-                <div className="fam-tile rv" key={src} style={{ "--d": k } as React.CSSProperties}>
-                  <img src={src} alt={alt} loading="lazy" /><small>{sm}</small>
-                </div>
-              ))}
-            </div>
-          </div>
+          <FamilyTree />
         </div>
       </section>
 
@@ -79,6 +57,15 @@ export default function Home() {
           </div>
         </div>
         <div className="wrap">
+          <div className="mini-stats rv">
+            <div className="ms-grid">
+              {stats.map(([v, l]) => (<div className="it" key={l}><Counter value={v} /><span>{l}</span></div>))}
+            </div>
+            <div className="projs">
+              <span>Our projects:</span>
+              {projects.map((p) => (<Link key={p} href="/ventures/touchwood-lifespaces/">{p}</Link>))}
+            </div>
+          </div>
           <div className="three">
             {strat.slice(0, 3).map(([h, p]) => (<div className="rv" key={h}><h3>Our {h.toLowerCase()}</h3><p>{p}</p></div>))}
           </div>
@@ -132,29 +119,7 @@ export default function Home() {
           <span className="kicker">How we work</span>
           <h2 className="rv">Why partners choose Touchwood.</h2>
           <p className="lead">Six promises that run through every venture.</p>
-          <div className="prin">
-            {sys.map(([h, p], i) => (
-              <div className="prin-card rv" key={h} style={{ "--d": i % 3 } as React.CSSProperties}>
-                <span className="prin-no">{String(i + 1).padStart(2, "0")}</span>
-                <i className="hx" aria-hidden="true" />
-                <h3>{h}</h3>
-                <p>{p}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="alt">
-        <div className="wrap">
-          <span className="kicker">Leadership</span>
-          <h2 className="rv">The people behind the hive.</h2>
-          <div className="team">
-            {team.map((t) => (
-              <div className="rv" key={t.n}><div className="hx">{teamPhoto[t.n] ? <img src={teamPhoto[t.n]} alt={t.n} loading="lazy" /> : t.n.split(" ").map((w) => w[0]).join("")}</div><h3>{t.n}</h3><small>{t.r}</small><p>{t.b}</p></div>
-            ))}
-          </div>
-          <div className="cta" style={{ marginTop: 28 }}><Link className="btn ghost" href="/about/">Meet our people</Link></div>
+          <WhyHex items={sys as unknown as string[][]} />
         </div>
       </section>
 
