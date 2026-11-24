@@ -15,7 +15,7 @@ export default function FamilyTree() {
         <div className="ft-col rv" style={{ "--d": 0 } as React.CSSProperties}>
           <div className="ft-node main"><Logo src="/logos/bliss.png" alt="Touchwood Bliss" /><small>Hospitality</small></div>
           <i className="ft-arrow" aria-hidden="true" />
-          <div className="ft-node"><Logo src="/logos/fairytale.png" alt="Fairytale Weddings" /><small>Touchwood Bliss Weddings</small></div>
+          <div className="ft-node"><Logo src="/logos/fairytale.png" alt="Fairytale Weddings" /><small>Fairytale Weddings by Touchwood Bliss</small></div>
           <i className="ft-arrow" aria-hidden="true" />
           <div className="ft-node"><Logo src="/logos/bliss.png" alt="Bliss" /><small>Touchwood Bliss Membership</small></div>
         </div>
