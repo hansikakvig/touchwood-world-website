@@ -1007,3 +1007,68 @@ main > * { animation: pgin .5s ease both; }
   .wh-panel { padding: 16px; margin-top: 22px; }
 }
 @media (prefers-reduced-motion: reduce) { .wh-cell, .wh-panel { transition: none; animation: none; } }
+/* ===== Family tree: keep 3 columns side by side on mobile ===== */
+@media (max-width: 768px) {
+  .ft {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .ft-cols {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    width: 100% !important;
+  }
+
+  .ft-col {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .ft-root {
+    max-width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ft-node,
+  .ft-list {
+    padding: 6px 4px !important;
+    border-radius: 10px !important;
+    min-width: 0;
+  }
+
+  .ft img {
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 34px;
+    object-fit: contain;
+  }
+
+  .ft-root img {
+    max-height: 44px;
+  }
+
+  .ft small {
+    font-size: 7px !important;
+    line-height: 1.2;
+    letter-spacing: 0 !important;
+    word-break: break-word;
+  }
+
+  .ft-text {
+    font-size: 11px !important;
+  }
+
+  .ft-list {
+    gap: 6px !important;
+  }
+}
+
+/* Chhote phones (360px se kam) */
+@media (max-width: 380px) {
+  .ft img { max-height: 28px; }
+  .ft small { font-size: 6px !important; }
+}
